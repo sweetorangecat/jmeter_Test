@@ -1,0 +1,2308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="生成订单数据" enabled="true">
+      <stringProp name="TestPlan.comments">压测环境插入大量订单</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="用户参数" enabled="true">
+        <collectionProp name="UserParameters.names">
+          <stringProp name="422792000">test0_store</stringProp>
+          <stringProp name="924744556">yc_store</stringProp>
+          <stringProp name="705953991">test0_epid</stringProp>
+          <stringProp name="-1356063973">yc_epid</stringProp>
+          <stringProp name="-836030906">userId</stringProp>
+          <stringProp name="-995381570">passWd</stringProp>
+          <stringProp name="150876339">test0_shopBffHost</stringProp>
+          <stringProp name="223842271">yc_shopBffHost</stringProp>
+          <stringProp name="-1176908422">test0_QmssoHost</stringProp>
+          <stringProp name="-1860630618">yc_QmssoHost</stringProp>
+          <stringProp name="-1971164844">test0_adminApiHost</stringProp>
+          <stringProp name="290779048">yc_adminApiHost</stringProp>
+          <stringProp name="505731450">gift_price</stringProp>
+          <stringProp name="644259396">product_shopBffHost</stringProp>
+          <stringProp name="438808035">product_adminApiHost</stringProp>
+          <stringProp name="1386051985">product_store</stringProp>
+          <stringProp name="-1158517941">product_QmssoHost</stringProp>
+          <stringProp name="1014121558">product_epid</stringProp>
+        </collectionProp>
+        <collectionProp name="UserParameters.thread_values">
+          <collectionProp name="1204825956">
+            <stringProp name="1965402550">1080140</stringProp>
+            <stringProp name="526169705">4707025</stringProp>
+            <stringProp name="-1702906329">E274155</stringProp>
+            <stringProp name="-1332680009">E2481766</stringProp>
+            <stringProp name="1561765426">18009611556</stringProp>
+            <stringProp name="1355536342">VzDXAgzk4LXLYvt1BkPkJbhOIY5tmzkErPfiN6nK9vTQmURUcclD9VBLlfuQ6BB3c5IerIv+TJI5LKSgatC2xFkl0R7jt6RiIFDSuBh0dOYIW8ciiWz86QncpUhZTxF0O/Ikat0yFhf4v2v5cICR61A1NCVOrNjK2foEmWTjtiw=</stringProp>
+            <stringProp name="-1942352258">172.21.36.55</stringProp>
+            <stringProp name="-1539172367">172.19.29.125</stringProp>
+            <stringProp name="-1942352324">172.21.36.31</stringProp>
+            <stringProp name="-880934594">172.19.29.50</stringProp>
+            <stringProp name="-1426502652">172.19.67.173</stringProp>
+            <stringProp name="-880964443">172.19.28.34</stringProp>
+            <stringProp name="-96495058">${__Random(10,100,)}</stringProp>
+            <stringProp name="-1703566787">shop-api.1000.com</stringProp>
+            <stringProp name="-1898328257">admin-shop-api.1000.com</stringProp>
+            <stringProp name="391310778">4296566</stringProp>
+            <stringProp name="507159017">www.1000.com</stringProp>
+            <stringProp name="0"></stringProp>
+          </collectionProp>
+        </collectionProp>
+        <boolProp name="UserParameters.per_iteration">false</boolProp>
+      </UserParameters>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="登录" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="压测环境登录请求" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;code&quot;: &quot;&quot;,&#xd;
+	&quot;nickname&quot;: &quot;${userId}&quot;,&#xd;
+	&quot;password&quot;: &quot;${passWd}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_QmssoHost}</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">appLogin/login.php</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="压测登录信息头" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">227</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="压测环境登录后Token获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">yc_au</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.sessionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="压测-UpdateSession" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;shopId&quot;: &quot;${__V(A${yc_store})}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_adminApiHost}</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">api/store/updateSession</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="压测updateSessionHeader" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">21</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${yc_au}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${yc_au}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试0登录请求" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;code&quot;: &quot;&quot;,&#xd;
+	&quot;nickname&quot;: &quot;${userId}&quot;,&#xd;
+	&quot;password&quot;: &quot;${passWd}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_QmssoHost}</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">appLogin/login.php</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="测试0-登录信息头" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">227</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="测试0-登录后Token获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">test0_au</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.sessionId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试0-UpdateSession" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;shopId&quot;: &quot;${__V(A${test0_store})}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_adminApiHost}</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">api/store/updateSession</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="test0updateSessionHeader" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">21</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${test0_au}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${test0_au}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="test0_sessionId全局变量" enabled="true">
+          <stringProp name="BeanShellSampler.query">${__setProperty(test0_auth,${test0_au},)}
+</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters">${test0_au}</stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="yc_sessionId全局变量" enabled="true">
+          <stringProp name="BeanShellSampler.query">${__setProperty(yc_auth,${yc_au},)}</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters">${yc_au}</stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="生成订单" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">50</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="压测环境-订单确认" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingCoupon&quot;: false,&#xd;
+	&quot;isUsingCoupons&quot;: true,&#xd;
+	&quot;isUsingIntegral&quot;: false,&#xd;
+	&quot;isUsingTally&quot;: false,&#xd;
+	&quot;items&quot;: [{&#xd;
+		&quot;buyPrice&quot;: 3.65,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;isGift&quot;: false,&#xd;
+		&quot;itemType&quot;: 1,&#xd;
+		&quot;quantity&quot;: 1.0,&#xd;
+		&quot;skuId&quot;: &quot;g24827008&quot;,&#xd;
+		&quot;spuId&quot;: &quot;15554477&quot;,&#xd;
+		&quot;title&quot;: &quot;测试商品1&quot;,&#xd;
+		&quot;total&quot;: 3.65,&#xd;
+		&quot;unit&quot;: &quot;个&quot;,&#xd;
+		&quot;unitId&quot;: &quot;&quot;&#xd;
+	}],&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;requestId&quot;: &quot;&quot;,&#xd;
+	&quot;total&quot;: 0.0,&#xd;
+	&quot;totalCashChangePrice&quot;: 0.0,&#xd;
+	&quot;totalCashPaidPrice&quot;: 0.0,&#xd;
+	&quot;type&quot;: &quot;pad&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/order/confirm</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">1169</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="压测环境订单rid获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">yc_rid</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.requestId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="压测环境-创建订单请求" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingCoupon&quot;: false,&#xd;
+	&quot;isUsingCoupons&quot;: true,&#xd;
+	&quot;isUsingIntegral&quot;: false,&#xd;
+	&quot;items&quot;: [&#xd;
+{&#xd;
+		&quot;barCode&quot;: &quot;58419533882&quot;,&#xd;
+		&quot;buyPrice&quot;: &quot;3.65&quot;,&#xd;
+		&quot;categoryName&quot;: &quot;&quot;,&#xd;
+		&quot;costPrice&quot;: &quot;0&quot;,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;isGift&quot;: false,&#xd;
+		&quot;itemType&quot;: 1,&#xd;
+		&quot;productName&quot;: &quot;测试商品1&quot;,&#xd;
+		&quot;quantity&quot;: &quot;1&quot;,&#xd;
+		&quot;salePrice&quot;: &quot;3.65&quot;,&#xd;
+		&quot;skuBn&quot;: &quot;2514169371512059&quot;,&#xd;
+		&quot;skuId&quot;: &quot;g24827008&quot;,&#xd;
+		&quot;spuId&quot;: &quot;15554477&quot;,&#xd;
+		&quot;title&quot;: &quot;测试商品1&quot;,&#xd;
+		&quot;total&quot;: &quot;3.65&quot;,&#xd;
+		&quot;unit&quot;: &quot;个&quot;,&#xd;
+		&quot;unitId&quot;: &quot;&quot;&#xd;
+	}],&#xd;
+	&quot;clientPrivilegeInfo&quot;: {&#xd;
+		&quot;type&quot;: 1,&#xd;
+    		&quot;value&quot;: 0.2,&#xd;
+    		&quot;custom&quot;: 1&#xd;
+		},&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;nickName&quot;: &quot;&quot;,&#xd;
+	&quot;operatorId&quot;: &quot;${yc_epid}&quot;,&#xd;
+	&quot;operatorName&quot;: &quot;18009611556&quot;,&#xd;
+	&quot;requestId&quot;: &quot;${yc_rid}&quot;,&#xd;
+	&quot;totalTradeCash&quot;: &quot;3.45&quot;,&#xd;
+	&quot;type&quot;: &quot;pad&quot;,&#xd;
+	&quot;userId&quot;: &quot;&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/create/order/v2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="创建订单信息头" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="OFCaptchaControl" elementType="Header">
+                <stringProp name="Header.name">OFCaptchaControl</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">1169</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="压测环境订单价格订单tid获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">yc_price;yc_tid</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.tradePrice;$.data.tid</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error;error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="压测-支付订单" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingTally&quot;: false,&#xd;
+	&quot;payAmount&quot;: ${yc_price},&#xd;
+	&quot;payType&quot;: &quot;cashPay&quot;,&#xd;
+	&quot;tid&quot;: &quot;${yc_tid}&quot;,&#xd;
+	&quot;totalCashChangePrice&quot;: &quot;0&quot;,&#xd;
+	&quot;totalCashPaidPrice&quot;: &quot;${yc_price}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/aggregation/pay</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="压测_支付Header" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">1169</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试0-订单确认" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingCoupon&quot;: false,&#xd;
+	&quot;isUsingCoupons&quot;: true,&#xd;
+	&quot;isUsingIntegral&quot;: false,&#xd;
+	&quot;isUsingTally&quot;: false,&#xd;
+	&quot;items&quot;: [{&#xd;
+		&quot;buyPrice&quot;: 20.0,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;isGift&quot;: false,&#xd;
+		&quot;itemType&quot;: 6,&#xd;
+		&quot;quantity&quot;: 1.0,&#xd;
+		&quot;skuId&quot;: &quot;g5133173&quot;,&#xd;
+		&quot;spuId&quot;: &quot;735956&quot;,&#xd;
+		&quot;title&quot;: &quot;晓茜疯了&quot;,&#xd;
+		&quot;total&quot;: 20.0,&#xd;
+		&quot;unit&quot;: &quot;个&quot;,&#xd;
+		&quot;unitId&quot;: &quot;&quot;&#xd;
+	}],&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;requestId&quot;: &quot;&quot;,&#xd;
+	&quot;total&quot;: 0.0,&#xd;
+	&quot;totalCashChangePrice&quot;: 0.0,&#xd;
+	&quot;totalCashPaidPrice&quot;: 0.0,&#xd;
+	&quot;type&quot;: &quot;pad&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/order/confirm</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="test0创建订单rid获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">test0_rid</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.requestId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试0-创建订单请求" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingCoupon&quot;: false,&#xd;
+	&quot;isUsingCoupons&quot;: true,&#xd;
+	&quot;isUsingIntegral&quot;: false,&#xd;
+	&quot;items&quot;: [{&#xd;
+		&quot;barCode&quot;: &quot;&quot;,&#xd;
+		&quot;buyPrice&quot;: &quot;20&quot;,&#xd;
+		&quot;categoryName&quot;: &quot;&quot;,&#xd;
+		&quot;costPrice&quot;: &quot;0&quot;,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;isGift&quot;: false,&#xd;
+		&quot;itemType&quot;: 6,&#xd;
+		&quot;productName&quot;: &quot;晓茜疯了&quot;,&#xd;
+		&quot;quantity&quot;: &quot;1&quot;,&#xd;
+		&quot;salePrice&quot;: &quot;20&quot;,&#xd;
+		&quot;skuBn&quot;: &quot;1608995384777782&quot;,&#xd;
+		&quot;skuId&quot;: &quot;g5133173&quot;,&#xd;
+		&quot;spuId&quot;: &quot;735956&quot;,&#xd;
+		&quot;title&quot;: &quot;晓茜疯了&quot;,&#xd;
+		&quot;total&quot;: &quot;20&quot;,&#xd;
+		&quot;unit&quot;: &quot;个&quot;,&#xd;
+		&quot;unitId&quot;: &quot;&quot;&#xd;
+	}],&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;nickName&quot;: &quot;&quot;,&#xd;
+	&quot;operatorId&quot;: &quot;${test0_epid}&quot;,&#xd;
+	&quot;operatorName&quot;: &quot;18009611556&quot;,&#xd;
+	&quot;requestId&quot;: &quot;${test0_rid}&quot;,&#xd;
+	&quot;totalTradeCash&quot;: &quot;20.00&quot;,&#xd;
+	&quot;type&quot;: &quot;pad&quot;,&#xd;
+	&quot;userId&quot;: &quot;&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/create/order/v2</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="创建订单信息头" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">560</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="test0订单价格订单tid获取" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">test0_price;test0_tid</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.tradePrice;$.data.tid</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1;1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">error;error</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="测试0-支付订单" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;isUsingTally&quot;: false,&#xd;
+	&quot;payAmount&quot;: ${test0_price},&#xd;
+	&quot;payType&quot;: &quot;cashPay&quot;,&#xd;
+	&quot;tid&quot;: &quot;${test0_tid}&quot;,&#xd;
+	&quot;totalCashChangePrice&quot;: &quot;0&quot;,&#xd;
+	&quot;totalCashPaidPrice&quot;: &quot;${test0_price}&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">seller/aggregation/pay</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="test0_支付Header" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">560</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="插入礼品卡使用记录" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1000</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="订单递增" enabled="true">
+          <stringProp name="CounterConfig.start">35369921</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">tid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="ID递增" enabled="true">
+          <stringProp name="CounterConfig.start">200</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">id</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="gift_id" enabled="true">
+          <stringProp name="CounterConfig.start">3994529088798741</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">gid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="插入礼品卡使用记录" enabled="true">
+          <stringProp name="dataSource">mysql</stringProp>
+          <stringProp name="query">INSERT INTO
+`gift_card_record` (id,tid,gift_card_id,offset_price,modify_time)
+VALUES
+(
+${id},
+&quot;${__V(TCC210222001111${tid})}&quot;,
+${gid},
+${gift_price},
+&quot;${__V(2021-03-02 ${__time(hh:mm:ss)})}&quot;
+);</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="插入礼品卡连接的数据库" enabled="true">
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="connectionProperties"></stringProp>
+            <stringProp name="dataSource">mysql</stringProp>
+            <stringProp name="dbUrl">jdbc:mysql://172.19.28.251:3306/d2ctccashmysql?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</stringProp>
+            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+            <stringProp name="initQuery"></stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="password">HY67TG4E</stringProp>
+            <stringProp name="poolMax">0</stringProp>
+            <boolProp name="preinit">false</boolProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <stringProp name="username">d2ctccashmysql</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="插入代付记录" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1000</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">10</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="订单递增" enabled="true">
+          <stringProp name="CounterConfig.start">35370000</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">tid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="CID递增" enabled="true">
+          <stringProp name="CounterConfig.start">4109360000</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">cid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="插入礼品卡使用记录" enabled="true">
+          <stringProp name="dataSource">mysql</stringProp>
+          <stringProp name="query">INSERT INTO
+`cashier_paying_agent` (tid,
+cid,
+create_time,
+mobile,
+nick_name,
+open_id,
+profile_pic,
+ticket_id,
+modify_time)
+VALUES
+(
+&quot;${__V(TCC210302001111${tid})}&quot;,
+&quot;${__V(R1124${cid})}&quot;,
+&quot;${__V(2021-03-02 ${__time(hh:mm:ss)})}&quot;,
+&quot;18009611556&quot;,
+&quot;orangecat&quot;,
+&quot;orangecat_cj&quot;,
+&quot;profilePIC&quot;,
+&quot;${__V(ticketid${__Random(1,100)})}&quot;,
+&quot;${__V(2021-03-02 ${__time(hh:mm:ss)})}&quot;
+);</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="插入礼品卡连接的数据库" enabled="true">
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="connectionProperties"></stringProp>
+            <stringProp name="dataSource">mysql</stringProp>
+            <stringProp name="dbUrl">jdbc:mysql://172.19.28.251:3306/d2ctccashmysql?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</stringProp>
+            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+            <stringProp name="initQuery"></stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="password">HY67TG4E</stringProp>
+            <stringProp name="poolMax">0</stringProp>
+            <boolProp name="preinit">false</boolProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <stringProp name="username">d2ctccashmysql</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="插入二次优惠" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5000</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">500</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="订单递增" enabled="true">
+          <stringProp name="CounterConfig.start">25369921</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">tid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="CID递增" enabled="true">
+          <stringProp name="CounterConfig.start">3109351620</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">cid</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="插入礼品卡使用记录" enabled="true">
+          <stringProp name="dataSource">mysql</stringProp>
+          <stringProp name="query">INSERT INTO
+`cashier_trade_second_privilege` (id,
+tid,
+type,
+value,
+price,
+modify_time)
+VALUES
+(
+&quot;${__V(TCC210211001111${tid})}&quot;,
+&quot;${__V(R1124${cid})}&quot;,
+&quot;${__V(2021-02-11 ${__time(hh:mm:ss)})}&quot;,
+&quot;18009611556&quot;,
+&quot;orangecat&quot;,
+&quot;orangecat_cj&quot;,
+&quot;profilePIC&quot;,
+&quot;${__V(ticketid${__Random(1,100)})}&quot;,
+&quot;${__V(2021-02-11 ${__time(hh:mm:ss)})}&quot;
+);</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="插入礼品卡连接的数据库" enabled="true">
+            <boolProp name="autocommit">true</boolProp>
+            <stringProp name="checkQuery"></stringProp>
+            <stringProp name="connectionAge">5000</stringProp>
+            <stringProp name="connectionProperties"></stringProp>
+            <stringProp name="dataSource">mysql</stringProp>
+            <stringProp name="dbUrl">jdbc:mysql://172.19.28.251:3306/d2ctccashmysql?allowMultiQueries=true&amp;useUnicode=true&amp;characterEncoding=UTF-8</stringProp>
+            <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+            <stringProp name="initQuery"></stringProp>
+            <boolProp name="keepAlive">true</boolProp>
+            <stringProp name="password">HY67TG4E</stringProp>
+            <stringProp name="poolMax">0</stringProp>
+            <boolProp name="preinit">false</boolProp>
+            <stringProp name="timeout">10000</stringProp>
+            <stringProp name="transactionIsolation">DEFAULT</stringProp>
+            <stringProp name="trimInterval">60000</stringProp>
+            <stringProp name="username">d2ctccashmysql</stringProp>
+          </JDBCDataSource>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="生成退货单" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">200</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">50</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="生成退货单-压测" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;items&quot;: [{&#xd;
+		&quot;barCode&quot;: &quot;&quot;,&#xd;
+		&quot;buyPrice&quot;: &quot;3.65&quot;,&#xd;
+		&quot;categoryName&quot;: &quot;&quot;,&#xd;
+		&quot;costPrice&quot;: &quot;0&quot;,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;itemType&quot;: 1,&#xd;
+		&quot;productName&quot;: &quot;测试商品1&quot;,&#xd;
+		&quot;quantity&quot;: &quot;1&quot;,&#xd;
+		&quot;skuBn&quot;: &quot;2514169371512059&quot;,&#xd;
+		&quot;skuId&quot;: &quot;g24827008&quot;,&#xd;
+		&quot;spuId&quot;: &quot;15554477&quot;,&#xd;
+		&quot;title&quot;: &quot;测试商品1&quot;,&#xd;
+		&quot;unit&quot;: &quot;个&quot;&#xd;
+	}],&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;platform&quot;: &quot;pad&quot;,&#xd;
+	&quot;refundOnly&quot;: false,&#xd;
+	&quot;returnReason&quot;: &quot;无&quot;,&#xd;
+	&quot;totalRefundPrice&quot;: &quot;3.65&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${yc_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">notid/refund</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="压测" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="OFCaptchaControl" elementType="Header">
+                <stringProp name="Header.name">OFCaptchaControl</stringProp>
+                <stringProp name="Header.value"></stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">1169</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${yc_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(yc_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="生成退货单-测试0" enabled="false">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;items&quot;: [{&#xd;
+		&quot;barCode&quot;: &quot;&quot;,&#xd;
+		&quot;buyPrice&quot;: &quot;2&quot;,&#xd;
+		&quot;categoryName&quot;: &quot;&quot;,&#xd;
+		&quot;costPrice&quot;: &quot;0&quot;,&#xd;
+		&quot;isChangingPrice&quot;: false,&#xd;
+		&quot;itemType&quot;: 6,&#xd;
+		&quot;productName&quot;: &quot;第六季&quot;,&#xd;
+		&quot;quantity&quot;: &quot;1&quot;,&#xd;
+		&quot;skuBn&quot;: &quot;2273697707438761&quot;,&#xd;
+		&quot;skuId&quot;: &quot;g5133172&quot;,&#xd;
+		&quot;spuId&quot;: &quot;735955&quot;,&#xd;
+		&quot;title&quot;: &quot;第六季&quot;,&#xd;
+		&quot;unit&quot;: &quot;个&quot;&#xd;
+	}],&#xd;
+	&quot;mobile&quot;: &quot;&quot;,&#xd;
+	&quot;platform&quot;: &quot;pad&quot;,&#xd;
+	&quot;refundOnly&quot;: false,&#xd;
+	&quot;returnReason&quot;: &quot;无&quot;,&#xd;
+	&quot;totalRefundPrice&quot;: &quot;2.00&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${test0_shopBffHost}</stringProp>
+          <stringProp name="HTTPSampler.port">7001</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">notid/refund</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="测试0" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+              <elementProp name="Content-Length" elementType="Header">
+                <stringProp name="Header.name">Content-Length</stringProp>
+                <stringProp name="Header.value">560</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">okhttp/4.9.0</stringProp>
+              </elementProp>
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="sn" elementType="Header">
+                <stringProp name="Header.name">sn</stringProp>
+                <stringProp name="Header.value">T203189A40323</stringProp>
+              </elementProp>
+              <elementProp name="platform" elementType="Header">
+                <stringProp name="Header.name">platform</stringProp>
+                <stringProp name="Header.value">a</stringProp>
+              </elementProp>
+              <elementProp name="devicetype" elementType="Header">
+                <stringProp name="Header.name">devicetype</stringProp>
+                <stringProp name="Header.value">pad</stringProp>
+              </elementProp>
+              <elementProp name="x-uid" elementType="Header">
+                <stringProp name="Header.name">x-uid</stringProp>
+                <stringProp name="Header.value">${test0_store}</stringProp>
+              </elementProp>
+              <elementProp name="store" elementType="Header">
+                <stringProp name="Header.name">store</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="vsname" elementType="Header">
+                <stringProp name="Header.name">vsname</stringProp>
+                <stringProp name="Header.value">2.0.1</stringProp>
+              </elementProp>
+              <elementProp name="model" elementType="Header">
+                <stringProp name="Header.name">model</stringProp>
+                <stringProp name="Header.value">T2</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-UserType" elementType="Header">
+                <stringProp name="Header.name">X-IM-UserType</stringProp>
+                <stringProp name="Header.value">122</stringProp>
+              </elementProp>
+              <elementProp name="X-IM-Token" elementType="Header">
+                <stringProp name="Header.name">X-IM-Token</stringProp>
+                <stringProp name="Header.value">${__P(test0_auth)}</stringProp>
+              </elementProp>
+              <elementProp name="app-channel" elementType="Header">
+                <stringProp name="Header.name">app-channel</stringProp>
+                <stringProp name="Header.value">QianMi</stringProp>
+              </elementProp>
+              <elementProp name="pcSplitOnlineOffline" elementType="Header">
+                <stringProp name="Header.name">pcSplitOnlineOffline</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+              <elementProp name="Connection" elementType="Header">
+                <stringProp name="Header.name">Connection</stringProp>
+                <stringProp name="Header.value">keep-alive</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="手动同步接口" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="手动迁移" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;operatorId&quot;: &quot;lijian&quot;,&#xd;
+  &quot;operatorName&quot;: &quot;lijian&quot;,&#xd;
+  &quot;taskId&quot;: 252437535939039232,&#xd;
+  &quot;uuId&quot;: &quot;testmigrate122&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">172.19.28.96</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">migrate/migrate/data/asdf1234</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=utf-8</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
